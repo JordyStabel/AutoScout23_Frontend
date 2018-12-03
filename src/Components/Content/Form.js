@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from "react";
+import React, {Component} from "react";
 import {
     Button,
     TextField,
@@ -58,8 +58,8 @@ export default withStyles(styles)(
         };
 
         render() {
-            const {title, description, allergies, categories} = this.state,
-                {classes, dish, categories: allCategories, allergies: allAllergies} = this.props;
+            const {title, description, allergies} = this.state,
+                {classes, dish, allergies: allAllergies} = this.props;
             return (
                 <form>
                     <TextField

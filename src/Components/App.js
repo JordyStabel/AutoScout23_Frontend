@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from "react";
-import {CssBaseline, MuiThemeProvider} from "@material-ui/core";
+import {CssBaseline} from "@material-ui/core";
 import {Footer, Header} from "./Layouts";
 import Content from "./Content/Content";
 import Menu from "./Content/Menu";
@@ -160,6 +160,8 @@ export default class extends Component {
 
             //webSocket.send(JSON.stringify(orderObject));
 
+            console.log(orderObject);
+
             // Reset order and dishes
             this.setState({order: []});
             this.fetchProductData();
@@ -281,8 +283,7 @@ export default class extends Component {
 
     render() {
         const dishes = this.getDishesByCategory();
-        const cars = this.state.cars;
-        const order = this.state.order,
+        const cars = this.state.cars,
             {category, dish, editMode, showAll} = this.state;
         return (/*theme={darkTheme}*/
             <Fragment>

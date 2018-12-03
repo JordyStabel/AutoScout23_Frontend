@@ -1,11 +1,10 @@
-import React, {Component, Fragment} from "react";
+import React, {Component} from "react";
 import {
     Button,
     TextField,
     FormControl,
     InputLabel,
     Select,
-    MenuItem,
     Paper
 } from "@material-ui/core";
 import {withStyles} from "@material-ui/core/styles";
@@ -71,8 +70,8 @@ export default withStyles(styles)(
         };
 
         render() {
-            const {title, description, allergies, categories} = this.state,
-                {classes, dish, categories: allCategories, allergies: allAllergies} = this.props;
+            const {title, description, allergies} = this.state,
+                {classes, dish} = this.props;
             return (
                 <div className={classes.container}>
                     <Paper className={classes.paper}>

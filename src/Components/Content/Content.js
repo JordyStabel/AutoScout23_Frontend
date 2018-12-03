@@ -3,18 +3,8 @@ import {
     Paper,
     Grid,
     Typography,
-    List,
-    ListItem,
-    ListItemSecondaryAction,
-    ListItemText,
-    Button,
-    IconButton,
-    Avatar
 } from "@material-ui/core";
-import {Add, Delete, Edit, Remove, Fastfood, Pets, Whatshot} from "@material-ui/icons";
-import Form from "./Form";
 import {withStyles} from "@material-ui/core/styles";
-import NumberFormat from 'react-number-format';
 import Item from "./Item.js";
 
 const styles = theme => ({

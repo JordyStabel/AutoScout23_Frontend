@@ -1,6 +1,6 @@
 import React from "react";
-import { AppBar, Tab,Tabs, Button, withWidth } from "@material-ui/core";
-import NavigationIcon from "@material-ui/icons/Navigation";
+import { AppBar, Tab,Tabs, withWidth } from "@material-ui/core";
+//import NavigationIcon from "@material-ui/icons/Navigation";
 
 export default withWidth()(({ categories, category, onSelect, onSubmit, isEmpty, width }) => {
   const index = category
