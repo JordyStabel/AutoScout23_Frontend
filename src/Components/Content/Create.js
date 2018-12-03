@@ -24,7 +24,7 @@ export default class extends Component {
     this.handleToggle();
     this.props.onCreate(dish);
   };
-
+  
   render() {
     const { open } = this.state,
       { allergies, categories } = this.props;
