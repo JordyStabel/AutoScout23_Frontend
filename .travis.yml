@@ -7,6 +7,7 @@ branches:
     - master
 
 script:
+- npm install --save-dev cross-env
 - cross-env CI=false
 - npm test
 - npm run build --base-href https://jordystabel.github.io/AutoScout23_Frontend/
