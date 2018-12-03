@@ -27,7 +27,7 @@ export default class extends Component {
     };
 
     componentDidMount() {
-        this.fetchCarData();
+        //this.fetchCarData();
         //this.fetchProductData();
         //this.fetchAllergyData();
         //this.fetchCategoryData();
