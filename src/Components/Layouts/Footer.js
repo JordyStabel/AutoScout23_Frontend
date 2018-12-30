@@ -1,6 +1,6 @@
 import React from "react";
-import { AppBar, Tab,Tabs, withWidth } from "@material-ui/core";
-//import NavigationIcon from "@material-ui/icons/Navigation";
+import { AppBar, Tab,Tabs, withWidth, Button } from "@material-ui/core";
+import NavigationIcon from "@material-ui/icons/Navigation";
 
 export default withWidth()(({ categories, category, onSelect, onSubmit, isEmpty, width }) => {
   const index = category
@@ -23,10 +23,10 @@ export default withWidth()(({ categories, category, onSelect, onSubmit, isEmpty,
       >
         <Tab label="All" />
         {categories.map(group => <Tab key={group} label={group} />)}
-          {/*<Button variant="extendedFab" aria-label="Delete" style={{height: 'auto', margin: 6}} disabled={isEmpty} onClick={onSubmit}>*/}
-              {/*<NavigationIcon/>*/}
-              {/*SUBMIT ORDER*/}
-          {/*</Button>*/}
+          <Button variant="extendedFab" aria-label="Delete" style={{height: 'auto', margin: 6}} disabled={!isEmpty} onClick={onSubmit}>
+              <NavigationIcon/>
+              SUBMIT ORDER
+          </Button>
       </Tabs>
     </AppBar>
   );

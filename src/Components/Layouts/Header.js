@@ -27,15 +27,15 @@ export default ({allergies, categories, onDishCreate, toggleShowAll, showAll, on
                 }
                 label={isChecked ? "Light-mode" : "Dark-mode"}
             />
-            <FormControlLabel
-                control={
-                    <Switch
-                        color="secondary"
-                        onChange={toggleShowAll}
-                    />
-                }
-                label={showAll ? "Show selected dishes" : "Show all dishes"}
-            />
+            {/*<FormControlLabel*/}
+                {/*control={*/}
+                    {/*<Switch*/}
+                        {/*color="secondary"*/}
+                        {/*onChange={toggleShowAll}*/}
+                    {/*/>*/}
+                {/*}*/}
+                {/*label={showAll ? "Show selected dishes" : "Show all dishes"}*/}
+            {/*/>*/}
             <CreateDialog allergies={allergies} categories={categories} onCreate={onDishCreate}/>
         </Toolbar>
     </AppBar>

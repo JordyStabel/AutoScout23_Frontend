@@ -88,7 +88,7 @@ class RecipeReviewCard extends React.Component {
                     <Card className={classes.imageCard}>
                         <CardMedia
                             className={classes.media}
-                            image={carImages[random]}
+                            image={car.image}
                             title={car.make}
                         />
                     </Card>
