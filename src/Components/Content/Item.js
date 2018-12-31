@@ -19,19 +19,11 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import {Divider} from '@material-ui/core';
 import NumberFormat from 'react-number-format';
 
-let carImages = [
-    'https://prod.pictures.autoscout24.net/listing-images/ce184541-babb-44cd-8d71-f460dbf9ba7e_a0d8cc41-443e-46bf-bf6e-34f5c6bd49a2.jpg/640x480.jpg',
-    'https://prod.pictures.autoscout24.net/listing-images/2133f5ee-2295-45ad-ae91-46846feba27e_6ce45211-b719-47b4-ad4a-80c084777f8e.jpg/640x480.jpg',
-    'https://prod.pictures.autoscout24.net/listing-images/0fe28954-0450-4102-94cf-3bdd5cfb06cf_218b5601-c902-4dec-9a5c-39936e264e1d.jpg/640x480.jpg',
-    'https://prod.pictures.autoscout24.net/listing-images/9b6409e1-dfe7-4a68-94a6-5835a45f1302_1ed0e002-f411-4998-b972-b786ac5bddf4.jpg/640x480.jpg',
-    'https://prod.pictures.autoscout24.net/listing-images/8f435f6f-4df6-48ba-9f8e-05c6bdfce30e_e57e8bbe-7908-472c-9e2a-d13471d7fef9.jpg/640x480.jpg',
-    'https://prod.pictures.autoscout24.net/listing-images/b04f616f-32b6-41f4-b6e4-fe582be1400c_493b9ffd-4e97-47b5-ab8d-61816f5fd2c6.jpg/640x480.jpg'];
-
 const styles = theme => ({
     card: {
         width: '100%',
         marginTop: 15,
-        marginLeft: 'auto',
+        marginLeft: 'auto'
     },
     media: {
         paddingTop: '62.5%',
@@ -69,8 +61,6 @@ class RecipeReviewCard extends React.Component {
     render() {
         const {classes} = this.props,
             {car} = this.props;
-
-        let random = Math.floor(Math.random() * 5);
 
         return (
             <Card className={classes.card}>

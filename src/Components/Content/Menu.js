@@ -8,6 +8,8 @@ import {
     Paper
 } from "@material-ui/core";
 import {withStyles} from "@material-ui/core/styles";
+import MenuItem from "@material-ui/core/MenuItem/MenuItem";
+import Input from "@material-ui/core/Input/Input";
 
 const styles = theme => ({
     FormControl: {
@@ -41,6 +43,7 @@ export default withStyles(styles)(
                     title: "",
                     description: "",
                     allergies: "",
+                    makes: "",
                     categories: ""
                 };
         }
@@ -55,6 +58,7 @@ export default withStyles(styles)(
             this.setState({
                 [name]: value
             });
+            console.log(this.state.make);
         };
 
         handleSubmit = () => {
@@ -65,13 +69,9 @@ export default withStyles(styles)(
             });
         };
 
-        handleOnChangeTemp = () => {
-
-        };
-
         render() {
-            const {title, description, allergies} = this.state,
-                {classes, dish} = this.props;
+            const {title, description, allergies, make} = this.state,
+                {classes, dish, makes} = this.props;
             return (
                 <div className={classes.container}>
                     <Paper className={classes.paper}>
@@ -84,9 +84,16 @@ export default withStyles(styles)(
                             fullWidth
                         />
                         <br/>
+                        <InputLabel htmlFor="makes">Car Make</InputLabel>
                         <FormControl className={classes.FormControl} fullWidth>
-                            <InputLabel htmlFor="allergies">Car Type</InputLabel>
-                            <Select value={allergies} onChange={this.handleOnChangeTemp()}>
+                            <Select
+                                value={this.state.make}
+                                onChange={this.handleChange("make")}>
+                                {makes.map(make => (
+                                    <MenuItem value={make}>
+                                        {make}
+                                    </MenuItem>
+                                ))}
                             </Select>
                         </FormControl>
                         <br/>
@@ -95,7 +102,7 @@ export default withStyles(styles)(
                             rows="4"
                             label="Description"
                             value={description}
-                            onChange={this.handleOnChangeTemp()}
+                            onChange={this.handleChange()}
                             margin="normal"
                             className={classes.FormControl}
                             fullWidth
@@ -104,7 +111,7 @@ export default withStyles(styles)(
                         <Button
                             color="primary"
                             variant="raised"
-                            onClick={this.handleOnChangeTemp()}
+                            onClick={this.handleChange()}
                             fullWidth
                             disabled={!title || !allergies || !description}>
                             {dish ? "Edit" : "Search"}
