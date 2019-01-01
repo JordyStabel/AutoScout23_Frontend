@@ -2,7 +2,7 @@ import React from "react";
 import { AppBar, Tab,Tabs, withWidth, Button } from "@material-ui/core";
 import NavigationIcon from "@material-ui/icons/Navigation";
 
-export default withWidth()(({ categories, category, onSelect, onSubmit, isEmpty, width }) => {
+export default withWidth()(({ categories, category, onSelect, onSubmit, getCarByMake, isEmpty, width }) => {
   const index = category
     ? categories.findIndex(group => group === category) + 1
     : 0;
@@ -26,6 +26,10 @@ export default withWidth()(({ categories, category, onSelect, onSubmit, isEmpty,
           <Button variant="extendedFab" aria-label="Delete" style={{height: 'auto', margin: 6}} disabled={!isEmpty} onClick={onSubmit}>
               <NavigationIcon/>
               SUBMIT ORDER
+          </Button>
+          <Button variant="extendedFab" aria-label="Delete" style={{height: 'auto', margin: 6}} disabled={!isEmpty} onClick={() => getCarByMake("Porsche")}>
+              <NavigationIcon/>
+              BUGATTI
           </Button>
       </Tabs>
     </AppBar>

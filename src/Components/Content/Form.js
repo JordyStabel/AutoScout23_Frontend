@@ -25,21 +25,21 @@ export default withStyles(styles)(
         state = this.getInitialState();
 
         getInitialState() {
-            const {dish} = this.props;
+            const {car} = this.props;
 
-            return dish
-                ? dish
+            return car
+                ? car
                 : {
                     title: "",
                     description: "",
-                    allergies: "",
-                    categories: ""
+                    make: "",
+                    price: ""
                 };
         }
 
-        componentWillReceiveProps({dish}) {
+        componentWillReceiveProps({car}) {
             this.setState({
-                ...dish
+                ...car
             });
         }
 
@@ -58,8 +58,8 @@ export default withStyles(styles)(
         };
 
         render() {
-            const {title, description, allergies} = this.state,
-                {classes, dish, allergies: allAllergies} = this.props;
+            const {title, description, makes} = this.state,
+                {classes, car, makes: allMakes} = this.props;
             return (
                 <form>
                     <TextField
@@ -72,26 +72,29 @@ export default withStyles(styles)(
                     />
                     <br/>
                     <FormControl className={classes.FormControl} fullWidth>
-                        <InputLabel htmlFor="allergies">Allergies</InputLabel>
-                        <Select value={allergies} onChange={this.handleChange("allergies")}>
-                            {allAllergies.map(allergy => (
-                                <MenuItem key={allergy} value={allergy}>
-                                    {allergy}
+                        <InputLabel htmlFor="car-makes">Makes</InputLabel>
+                        <Select value={makes} onChange={this.handleChange("makes")}>
+                            {allMakes.map(make => (
+                                <MenuItem key={make} value={make}>
+                                    {make}
                                 </MenuItem>
                             ))}
                         </Select>
                     </FormControl>
                     <br/>
-                    {/*<FormControl className={classes.FormControl} fullWidth>*/}
-                        {/*<InputLabel htmlFor="categories">Categories</InputLabel>*/}
-                        {/*<Select value={categories} onChange={this.handleChange("categories")}>*/}
-                            {/*{allCategories.map(category => (*/}
-                                {/*<MenuItem key={category} value={category}>*/}
-                                    {/*{category}*/}
-                                {/*</MenuItem>*/}
-                            {/*))}*/}
-                        {/*</Select>*/}
-                    {/*</FormControl>*/}
+                    <TextField
+                        id="standard-number"
+                        label="Price $"
+                        value={this.state.price}
+                        onChange={this.handleChange("price")}
+                        type="number"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        margin="normal"
+                        fullWidth={true}
+                    />
+                    <br/>
                     <br/>
                     <TextField
                         multiline={true}
@@ -103,14 +106,23 @@ export default withStyles(styles)(
                         className={classes.FormControl}
                         fullWidth
                     />
+                    <TextField
+                        label="Image URL"
+                        value={title}
+                        onChange={this.handleChange("title")}
+                        margin="normal"
+                        className={classes.FormControl}
+                        fullWidth
+                    />
+                    <br/>
                     <br/>
                     <Button
                         color="primary"
                         variant="raised"
                         onClick={this.handleSubmit}
                         fullWidth
-                        disabled={!title || !allergies || !description}>
-                        {dish ? "Edit" : "Create"}
+                        disabled={!title || !makes || !description}>
+                        {car ? "EDIT" : "SUBMIT"}
                     </Button>
                 </form>
             );

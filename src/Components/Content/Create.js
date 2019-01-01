@@ -27,7 +27,7 @@ export default class extends Component {
 
   render() {
     const { open } = this.state,
-      { allergies, categories } = this.props;
+      { allergies, categories, makes } = this.props;
 
     return (
       <Fragment>
@@ -35,12 +35,12 @@ export default class extends Component {
           <Add />
         </Button>
         <Dialog open={open} onClose={this.handleToggle} fullWidth>
-          <DialogTitle>Create new dish</DialogTitle>
+          <DialogTitle>Sell your car</DialogTitle>
           <DialogContent>
             <DialogContentText>
               Please fill out the form below.
             </DialogContentText>
-            <Form allergies={allergies} categories={categories} onSubmit={this.handleFormSubmit} />
+            <Form allergies={allergies} categories={categories} makes={makes} onSubmit={this.handleFormSubmit} />
           </DialogContent>
         </Dialog>
       </Fragment>

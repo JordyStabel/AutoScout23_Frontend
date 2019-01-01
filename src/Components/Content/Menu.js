@@ -58,7 +58,6 @@ export default withStyles(styles)(
             this.setState({
                 [name]: value
             });
-            console.log(this.state.make);
         };
 
         handleSubmit = () => {
@@ -71,7 +70,7 @@ export default withStyles(styles)(
 
         render() {
             const {title, description, allergies, make} = this.state,
-                {classes, dish, makes} = this.props;
+                {classes, dish, makes, onSearch} = this.props;
             return (
                 <div className={classes.container}>
                     <Paper className={classes.paper}>
@@ -111,10 +110,10 @@ export default withStyles(styles)(
                         <Button
                             color="primary"
                             variant="raised"
-                            onClick={this.handleChange()}
+                            onClick={() => onSearch(this.state.make)}
                             fullWidth
-                            disabled={!title || !allergies || !description}>
-                            {dish ? "Edit" : "Search"}
+                            disabled={!make}>
+                            {make == null ? "Select make" : "Search"}
                         </Button>
                     </Paper>
                 </div>

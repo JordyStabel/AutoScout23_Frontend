@@ -12,7 +12,7 @@ function themeSwitch() {
     isChecked = !isChecked;
 }
 
-export default ({allergies, categories, onDishCreate, toggleShowAll, showAll, onRequestBill, order}) => (
+export default ({allergies, categories, onDishCreate, makes, toggleShowAll, showAll, onRequestBill, order}) => (
     <AppBar position="static">
         <Toolbar>
             <Typography variant="title" color="inherit" style={{flex: 1, marginLeft: 20}}>
@@ -36,7 +36,7 @@ export default ({allergies, categories, onDishCreate, toggleShowAll, showAll, on
                 {/*}*/}
                 {/*label={showAll ? "Show selected dishes" : "Show all dishes"}*/}
             {/*/>*/}
-            <CreateDialog allergies={allergies} categories={categories} onCreate={onDishCreate}/>
+            <CreateDialog allergies={allergies} categories={categories} makes={makes} onCreate={onDishCreate}/>
         </Toolbar>
     </AppBar>
 );
