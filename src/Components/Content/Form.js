@@ -8,6 +8,8 @@ import {
     MenuItem,
 } from "@material-ui/core";
 import {withStyles} from "@material-ui/core/styles";
+import NumberFormat from 'react-number-format';
+import Typography from "@material-ui/core/Typography/Typography";
 
 const styles = theme => ({
     FormControl: {
@@ -19,6 +21,48 @@ const styles = theme => ({
         }
     }
 });
+
+function NumberFormatPrice(props) {
+    const { inputRef, onChange, ...other } = props;
+
+    return (
+        <NumberFormat
+            {...other}
+            getInputRef={inputRef}
+            onValueChange={values => {
+                onChange({
+                    target: {
+                        value: values.value,
+                    },
+                });
+            }}
+            thousandSeparator
+            allowNegative={false}
+            prefix="$"
+        />
+    );
+}
+
+function NumberFormatMileage(props) {
+    const { inputRef, onChange, ...other } = props;
+
+    return (
+        <NumberFormat
+            {...other}
+            getInputRef={inputRef}
+            onValueChange={values => {
+                onChange({
+                    target: {
+                        value: values.value,
+                    },
+                });
+            }}
+            thousandSeparator
+            allowNegative={false}
+            suffix=" mi"
+        />
+    );
+}
 
 export default withStyles(styles)(
     class extends Component {
@@ -49,31 +93,23 @@ export default withStyles(styles)(
             });
         };
 
-        handleSubmit = () => {
-            this.props.onSubmit({
-                // Create an ID from the title, replacing spaces with '-'
-                id: this.state.title.toLocaleLowerCase().replace(/ /g, "-"),
-                ...this.state
-            });
-        };
-
         render() {
-            const {title, description, makes} = this.state,
-                {classes, car, makes: allMakes} = this.props;
+            const {model, description, make, price, mileage, image} = this.state,
+                {classes, car, makes: allMakes, onSubmit} = this.props;
             return (
                 <form>
                     <TextField
-                        label="Title"
-                        value={title}
-                        onChange={this.handleChange("title")}
+                        label="Model"
+                        value={model}
+                        onChange={this.handleChange("model")}
                         margin="normal"
                         className={classes.FormControl}
                         fullWidth
                     />
                     <br/>
                     <FormControl className={classes.FormControl} fullWidth>
-                        <InputLabel htmlFor="car-makes">Makes</InputLabel>
-                        <Select value={makes} onChange={this.handleChange("makes")}>
+                        <InputLabel htmlFor="car-makes">Make</InputLabel>
+                        <Select value={make} onChange={this.handleChange("make")}>
                             {allMakes.map(make => (
                                 <MenuItem key={make} value={make}>
                                     {make}
@@ -83,18 +119,24 @@ export default withStyles(styles)(
                     </FormControl>
                     <br/>
                     <TextField
-                        id="standard-number"
                         label="Price $"
-                        value={this.state.price}
+                        value={price}
                         onChange={this.handleChange("price")}
-                        type="number"
-                        InputLabelProps={{
-                            shrink: true,
-                        }}
-                        margin="normal"
                         fullWidth={true}
+                        InputProps={{
+                            inputComponent: NumberFormatPrice,
+                        }}
                     />
                     <br/>
+                    <TextField
+                        label="Mileage"
+                        value={mileage}
+                        onChange={this.handleChange("mileage")}
+                        fullWidth={true}
+                        InputProps={{
+                            inputComponent: NumberFormatMileage,
+                        }}
+                    />
                     <br/>
                     <TextField
                         multiline={true}
@@ -102,14 +144,14 @@ export default withStyles(styles)(
                         label="Description"
                         value={description}
                         onChange={this.handleChange("description")}
-                        margin="normal"
+                        //margin="normal"
                         className={classes.FormControl}
                         fullWidth
                     />
                     <TextField
                         label="Image URL"
-                        value={title}
-                        onChange={this.handleChange("title")}
+                        value={image}
+                        onChange={this.handleChange("image")}
                         margin="normal"
                         className={classes.FormControl}
                         fullWidth
@@ -119,9 +161,9 @@ export default withStyles(styles)(
                     <Button
                         color="primary"
                         variant="raised"
-                        onClick={this.handleSubmit}
+                        onClick={() => onSubmit(this.state)}
                         fullWidth
-                        disabled={!title || !makes || !description}>
+                        disabled={!model || !make || !description}>
                         {car ? "EDIT" : "SUBMIT"}
                     </Button>
                 </form>

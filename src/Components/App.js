@@ -151,24 +151,25 @@ export default class extends Component {
     handleSubmitCar = car => {
 
         console.log("Fired");
-
-        // let newCar = {
-        //     id: "",
-        //     make: car.make,
-        //     model: car.model,
-        //     mileage: car.mileage,
-        //     price: car.price,
-        //     image: car.image
-        // };
+        console.log(car);
 
         let newCar = {
             id: "",
-            make: "Porsche",
-            model: "911",
-            mileage: 13437,
-            price: 78500,
-            image: "https://s.aolcdn.com/dims-global/dims3/GLOB/legacy_thumbnail/640x400/quality/80/https://s.aolcdn.com/commerce/autodata/images/USC70PRC011A021001.jpg"
+            make: car.make,
+            model: car.model,
+            mileage: car.mileage,
+            price: car.price,
+            image: car.image
         };
+
+        // let newCar = {
+        //     id: "",
+        //     make: "Porsche",
+        //     model: "911",
+        //     mileage: 13437,
+        //     price: 78500,
+        //     image: "https://s.aolcdn.com/dims-global/dims3/GLOB/legacy_thumbnail/640x400/quality/80/https://s.aolcdn.com/commerce/autodata/images/USC70PRC011A021001.jpg"
+        // };
 
         fetch('http://localhost:9000/new-car', {
             method: 'POST',
@@ -178,11 +179,17 @@ export default class extends Component {
             },
             body: JSON.stringify({
                 id: "",
-                make: "Bugatti",
-                model: "Chiron",
-                mileage: 1337,
-                price: 2500000,
-                image: "https://s.aolcdn.com/dims-global/dims3/GLOB/legacy_thumbnail/640x400/quality/80/https://s.aolcdn.com/commerce/autodata/images/USC70PRC011A021001.jpg"
+                make: car.make,
+                model: car.model,
+                mileage: car.mileage,
+                price: car.price,
+                image: car.image
+                // id: "",
+                // make: "Bugatti",
+                // model: "Chiron",
+                // mileage: 1337,
+                // price: 2500000,
+                // image: "https://s.aolcdn.com/dims-global/dims3/GLOB/legacy_thumbnail/640x400/quality/80/https://s.aolcdn.com/commerce/autodata/images/USC70PRC011A021001.jpg"
             })
         });
 

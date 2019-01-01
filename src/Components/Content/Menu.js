@@ -10,6 +10,7 @@ import {
 import {withStyles} from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem/MenuItem";
 import Input from "@material-ui/core/Input/Input";
+import Typography from "@material-ui/core/Typography/Typography";
 
 const styles = theme => ({
     FormControl: {
@@ -74,15 +75,8 @@ export default withStyles(styles)(
             return (
                 <div className={classes.container}>
                     <Paper className={classes.paper}>
-                        <TextField
-                            label="Title"
-                            value={title}
-                            onChange={this.handleChange("title")}
-                            margin="normal"
-                            className={classes.FormControl}
-                            fullWidth
-                        />
-                        <br/>
+                        <Typography variant={"headline"} align={"center"}
+                                    style={{margin: 25}}>Filter by Make</Typography>
                         <InputLabel htmlFor="makes">Car Make</InputLabel>
                         <FormControl className={classes.FormControl} fullWidth>
                             <Select
@@ -95,24 +89,13 @@ export default withStyles(styles)(
                                 ))}
                             </Select>
                         </FormControl>
-                        <br/>
-                        <TextField
-                            multiline={true}
-                            rows="4"
-                            label="Description"
-                            value={description}
-                            onChange={this.handleChange()}
-                            margin="normal"
-                            className={classes.FormControl}
-                            fullWidth
-                        />
-                        <br/>
                         <Button
                             color="primary"
                             variant="raised"
                             onClick={() => onSearch(this.state.make)}
                             fullWidth
-                            disabled={!make}>
+                            disabled={!make}
+                            style={{marginTop: 15}}>
                             {make == null ? "Select make" : "Search"}
                         </Button>
                     </Paper>

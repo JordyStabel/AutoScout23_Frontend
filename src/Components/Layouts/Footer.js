@@ -29,7 +29,7 @@ export default withWidth()(({ categories, category, onSelect, onSubmit, getCarBy
           </Button>
           <Button variant="extendedFab" aria-label="Delete" style={{height: 'auto', margin: 6}} disabled={!isEmpty} onClick={() => getCarByMake("Porsche")}>
               <NavigationIcon/>
-              BUGATTI
+              PORSCHE
           </Button>
       </Tabs>
     </AppBar>
