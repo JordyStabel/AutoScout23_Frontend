@@ -8,6 +8,9 @@ export const handleRequestBill = () => {
     alert("Bill has been requested.");
 };
 
+//const backendURL = "http://localhost:9000";
+const backendURL = "https://autoscout23.herokuapp.com";
+
 export default class extends Component {
     state = {
         dishes: [],
@@ -38,7 +41,7 @@ export default class extends Component {
     }
 
     fetchCarData() {
-        fetch("http://localhost:9000/get-all-cars")
+        fetch(backendURL + "/get-all-cars")
             .then(response => response.json())
             .then(parsedJSON => parsedJSON.list.map(car => (
                 {
@@ -46,8 +49,8 @@ export default class extends Component {
                     model: car.model,
                     mileage: car.mileage,
                     price: car.price,
-                    created: car.created,
-                    updated: car.updated,
+                    created: car.date_created,
+                    updated: car.date_updated,
                     image: car.image
                 }
             ), console.log(parsedJSON)))
@@ -58,7 +61,7 @@ export default class extends Component {
     }
 
     fetchCarOfMake = (make) =>  {
-        fetch("http://localhost:9000/car-make/" + make)
+        fetch(backendURL + "/car-make/" + make)
             .then(response => response.json())
             .then(parsedJSON => parsedJSON.list.map(car => (
                 {
@@ -66,8 +69,8 @@ export default class extends Component {
                     model: car.model,
                     mileage: car.mileage,
                     price: car.price,
-                    created: car.created,
-                    updated: car.updated,
+                    created: car.date_created,
+                    updated: car.date_updated,
                     image: car.image
                 }
             ), console.log(parsedJSON)))
@@ -78,7 +81,7 @@ export default class extends Component {
     };
 
     fetchMakeData() {
-        fetch("http://localhost:9000/get-all-makes")
+        fetch(backendURL + "/get-all-makes")
             .then(response => response.json())
             .then(parsedJSON => parsedJSON.list.map(make => (
                 {
@@ -94,7 +97,7 @@ export default class extends Component {
     }
 
     fetchAllergyData() {
-        fetch("http://localhost:9050/allergies")
+        fetch(backendURL + "/allergies")
             .then(response => response.json())
             .then(parsedJSON => parsedJSON.allergies.map(allergy => (
                 {
@@ -171,25 +174,18 @@ export default class extends Component {
         //     image: "https://s.aolcdn.com/dims-global/dims3/GLOB/legacy_thumbnail/640x400/quality/80/https://s.aolcdn.com/commerce/autodata/images/USC70PRC011A021001.jpg"
         // };
 
-        fetch('http://localhost:9000/new-car', {
+        fetch(backendURL + "/new-car", {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                id: "",
                 make: car.make,
                 model: car.model,
                 mileage: car.mileage,
                 price: car.price,
                 image: car.image
-                // id: "",
-                // make: "Bugatti",
-                // model: "Chiron",
-                // mileage: 1337,
-                // price: 2500000,
-                // image: "https://s.aolcdn.com/dims-global/dims3/GLOB/legacy_thumbnail/640x400/quality/80/https://s.aolcdn.com/commerce/autodata/images/USC70PRC011A021001.jpg"
             })
         });
 

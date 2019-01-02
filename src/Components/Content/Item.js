@@ -26,12 +26,11 @@ const styles = theme => ({
         marginLeft: 'auto'
     },
     media: {
-        paddingTop: '62.5%',
+        paddingTop: '55%',
         overflow: 'hidden'
     },
     imageCard: {
-        margin: 5,
-        width: 450,
+        width: 500,
     },
     actions: {
         display: 'flex',
@@ -68,7 +67,7 @@ class RecipeReviewCard extends React.Component {
                     <Card className={classes.imageCard}>
                         <CardMedia
                             className={classes.media}
-                            image={car.image}
+                            image={(car.image !== "") ? car.image : 'https://cdn4.iconfinder.com/data/icons/car-silhouettes/1000/sedan-512.png'}
                             title={car.make}
                         />
                     </Card>
