@@ -8,6 +8,11 @@ export const handleRequestBill = () => {
     alert("Bill has been requested.");
 };
 
+// For testing only
+export const add = (x, y) => {
+    return x + y;
+};
+
 //const backendURL = "http://localhost:9000";
 const backendURL = "https://autoscout23.herokuapp.com";
 
