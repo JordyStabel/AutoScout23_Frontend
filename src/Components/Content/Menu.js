@@ -71,7 +71,7 @@ export default withStyles(styles)(
 
         render() {
             const {title, description, allergies, make} = this.state,
-                {classes, dish, makes, onSearch} = this.props;
+                {classes, dish, makes, onSearch, onResetFilter} = this.props;
             return (
                 <div className={classes.container}>
                     <Paper className={classes.paper}>
@@ -97,6 +97,15 @@ export default withStyles(styles)(
                             disabled={!make}
                             style={{marginTop: 15}}>
                             {make == null ? "Select make" : "Search"}
+                        </Button>
+                        <Button
+                            size="small"
+                            color="primary"
+                            variant="outlined"
+                            onClick={() => onResetFilter()}
+                            fullWidth
+                            style={{marginTop: 15}}>
+                            REST FILTER
                         </Button>
                     </Paper>
                 </div>

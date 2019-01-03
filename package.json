@@ -1,5 +1,5 @@
 {
-  "name": "food-self-service-frontend",
+  "name": "auto-scout-23",
   "homepage": "https://jordystabel.github.io/AutoScout23_Frontend/",
   "version": "0.1.0",
   "description": "ReactJS/MaterialUI Menu",
@@ -8,20 +8,28 @@
   "dependencies": {
     "@material-ui/core": "3.1.2",
     "@material-ui/icons": "3.0.1",
+    "import-local": "^2.0.0",
     "npm": "^6.4.1",
     "prop-types": "latest",
     "react": "16.5.2",
     "react-dom": "16.5.2",
     "react-number-format": "^4.0.5",
-    "react-scripts": "^2.0.4",
+    "react-scripts": "^2.1.2",
     "typeface-roboto": "0.0.54"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-jest": "^23.6.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "jest": "^23.6.0",
+    "react-test-renderer": "^16.7.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "avatarContainer": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test": "jest --watchAll"
   },
   "browserslist": [
     ">0.2%",

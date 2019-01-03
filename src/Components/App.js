@@ -40,7 +40,7 @@ export default class extends Component {
         //this.fetchCategoryData();
     }
 
-    fetchCarData() {
+    fetchCarData = () => {
         fetch(backendURL + "/get-all-cars")
             .then(response => response.json())
             .then(parsedJSON => parsedJSON.list.map(car => (
@@ -57,8 +57,8 @@ export default class extends Component {
             .then(data => this.setState({
                 cars: data
             }))
-            .catch(error => console.log("There was an error during: 'fetchAllergyData'", error))
-    }
+            .catch(error => console.log("There was an error during: 'fetchCarData'", error))
+    };
 
     fetchCarOfMake = (make) =>  {
         fetch(backendURL + "/car-make/" + make)
@@ -73,7 +73,7 @@ export default class extends Component {
                     updated: car.date_updated,
                     image: car.image
                 }
-            ), console.log(parsedJSON)))
+            )))
             .then(data => this.setState({
                 cars: data
             }))
@@ -88,13 +88,15 @@ export default class extends Component {
                     id: make.id,
                     make: make.make
                 }
-            ), console.log(parsedJSON)))
+            )))
             .then(data => this.setState({
                 makes: data,
                 makeNames: data.map((item) => item.make),
             }))
-            .catch(error => console.log("There was an error during: 'fetchMakeData'", error))
+            .catch(error => console.log("There was an error during: 'fetchMakeData'", error));
     }
+
+    // let sortedArray = menuItems.order.items.sort(sortByElement("name"));
 
     fetchAllergyData() {
         fetch(backendURL + "/allergies")
@@ -190,6 +192,8 @@ export default class extends Component {
         });
 
         //this.fetchProductData();
+
+        console.log(newCar);
 
         this.setState(({cars}) => ({
             cars: [...cars, newCar]
@@ -397,7 +401,9 @@ export default class extends Component {
                               allergies={this.categoryNames}
                               categories={this.categoryNames}
                               onSubmit={this.handleRequestBill}
-                              onSearch={this.fetchCarOfMake}/>
+                              onSearch={this.fetchCarOfMake}
+                              onResetFilter={this.fetchCarData}
+                        />
                     </div>
                     <div style={{flexGrow: 2, width: '75%'}}>
                         <Content
