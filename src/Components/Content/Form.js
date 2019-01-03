@@ -9,7 +9,6 @@ import {
 } from "@material-ui/core";
 import {withStyles} from "@material-ui/core/styles";
 import NumberFormat from 'react-number-format';
-import Typography from "@material-ui/core/Typography/Typography";
 
 const styles = theme => ({
     FormControl: {

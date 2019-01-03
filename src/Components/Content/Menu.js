@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {
     Button,
-    TextField,
+    //TextField,
     FormControl,
     InputLabel,
     Select,
@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core";
 import {withStyles} from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem/MenuItem";
-import Input from "@material-ui/core/Input/Input";
+//import Input from "@material-ui/core/Input/Input";
 import Typography from "@material-ui/core/Typography/Typography";
 
 const styles = theme => ({
@@ -70,8 +70,8 @@ export default withStyles(styles)(
         };
 
         render() {
-            const {title, description, allergies, make} = this.state,
-                {classes, dish, makes, onSearch, onResetFilter} = this.props;
+            const {make} = this.state, //title, description, allergies,
+                {classes, makes, onSearch, onResetFilter} = this.props; //dish,
             return (
                 <div className={classes.container}>
                     <Paper className={classes.paper}>
