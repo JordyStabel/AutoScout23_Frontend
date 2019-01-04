@@ -16,7 +16,7 @@ export default ({allergies, categories, onDishCreate, makes, toggleShowAll, show
     <AppBar position="static">
         <Toolbar>
             <Typography variant="title" color="inherit" style={{flex: 1, marginLeft: 20}}>
-                AutoScout23 - Buy & Sell Cars
+                AutoScout23 - Buy & Sell Cars asdfasdfasdf
             </Typography>
             <FormControlLabel
                 control={

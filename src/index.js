@@ -4,7 +4,7 @@ import App from "./Components/App.js";
 import {MuiThemeProvider, createMuiTheme} from "@material-ui/core/styles";
 import {orange, grey} from "@material-ui/core/colors";
 
-let isDarkTheme = false;
+//let isDarkTheme = false;
 
 // export const toggleTheme = () => {
 //     isDarkTheme = !isDarkTheme;
@@ -28,17 +28,17 @@ const lightTheme = createMuiTheme({
     }
 });
 
-const darkTheme = createMuiTheme({
-    palette: {
-        type: "dark",
-        primary: orange,
-        secondary: {
-            main: grey[50],
-            light: grey[50],
-            dark: grey[50]
-        }
-    }
-});
+// const darkTheme = createMuiTheme({
+//     palette: {
+//         type: "dark",
+//         primary: orange,
+//         secondary: {
+//             main: grey[50],
+//             light: grey[50],
+//             dark: grey[50]
+//         }
+//     }
+// });
 
 ReactDOM.render(
     <MuiThemeProvider
