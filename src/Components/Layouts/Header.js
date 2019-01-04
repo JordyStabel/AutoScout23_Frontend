@@ -3,12 +3,12 @@ import {AppBar, Toolbar, Typography} from "@material-ui/core";
 import CreateDialog from "../Content/Create";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
-import {toggleTheme} from "../../index";
+//import {toggleTheme} from "../../index";
 
 let isChecked = false;
 
 function themeSwitch() {
-    toggleTheme();
+    //toggleTheme();
     isChecked = !isChecked;
 }
 

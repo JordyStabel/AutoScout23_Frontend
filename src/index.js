@@ -6,15 +6,15 @@ import {orange, grey} from "@material-ui/core/colors";
 
 let isDarkTheme = false;
 
-export const toggleTheme = () => {
-    isDarkTheme = !isDarkTheme;
-    ReactDOM.render(
-        <MuiThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
-            <App changeTheme={toggleTheme.bind(this)}/>
-        </MuiThemeProvider>,
-        document.getElementById("root")
-    );
-};
+// export const toggleTheme = () => {
+//     isDarkTheme = !isDarkTheme;
+//     ReactDOM.render(
+//         <MuiThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
+//             <App changeTheme={toggleTheme.bind(this)}/>
+//         </MuiThemeProvider>,
+//         document.getElementById("root")
+//     );
+// };
 
 const lightTheme = createMuiTheme({
     palette: {

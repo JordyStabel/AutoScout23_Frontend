@@ -1,4 +1,10 @@
-//import { add } from "./App";
+import { add } from "./App";
+import React from "react";
+//import { shallow } from "enzyme";
+
+test('Adding numbers', () => {
+    expect(add(4,6)).toBe(10);
+});
 
 const sum = require('./ForTesting');
 
