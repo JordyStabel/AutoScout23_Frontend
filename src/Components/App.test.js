@@ -1,19 +1,30 @@
 import { add } from "./App";
 import React from "react";
-//import { shallow } from "enzyme";
+import { shallow } from "enzyme";
+import Header from "./Layouts/Header";
+import { configure } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+
+configure({adapter: new Adapter()});
+
+describe('Header', () => {
+    test('Rendering header', () =>{
+        const wrapper = shallow(
+            <Header/>
+        );
+
+        expect(wrapper).toMatchSnapshot();
+    });
+});
 
 test('Adding numbers', () => {
     expect(add(4,6)).toBe(10);
 });
 
-const sum = require('./ForTesting');
-
 test("Fake Test", () => {
     expect(true).toBeTruthy();
 });
 
-console.log(sum(2, 2));
-
 test("Fake Test II", () => {
-    expect(true).toBeFalsy();
+    expect(false).toBeFalsy();
 });

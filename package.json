@@ -4,10 +4,11 @@
   "version": "0.1.0",
   "description": "ReactJS/MaterialUI Menu",
   "keywords": [],
-  "main": "food-self-service-frontend/src/index.js",
+  "main": "auto-scout-23/src/index.js",
   "dependencies": {
     "@material-ui/core": "3.1.2",
     "@material-ui/icons": "3.0.1",
+    "@types/jest": "^23.3.11",
     "import-local": "^2.0.0",
     "npm": "^6.4.1",
     "prop-types": "latest",
