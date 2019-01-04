@@ -13,7 +13,7 @@ describe('Header', () => {
             <Header/>
         );
 
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toMatchSnapshot("src/Components/__snapshots__/App.test.js.snap");
     });
 });
 

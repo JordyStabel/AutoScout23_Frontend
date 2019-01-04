@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header Rendering a simple component 1`] = `
+exports[`Header Rendering header: src/Components/__snapshots__/App.test.js.snap 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <_default />,
