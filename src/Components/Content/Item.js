@@ -14,6 +14,7 @@ import Typography from '@material-ui/core/Typography';
 //import red from '@material-ui/core/colors/red';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
+import DeleteIcon from '@material-ui/icons/Delete';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import NumberFormat from 'react-number-format';
@@ -58,7 +59,7 @@ class RecipeReviewCard extends React.Component {
 
     render() {
         const {classes} = this.props,
-            {car} = this.props;
+            {car, onDelete} = this.props;
 
         return (
             <Card className={classes.card}>
@@ -108,6 +109,9 @@ class RecipeReviewCard extends React.Component {
                                 </IconButton>
                                 <IconButton aria-label="Share">
                                     <ShareIcon/>
+                                </IconButton>
+                                <IconButton aria-label="Delete" onClick={() => onDelete(car.id)}>
+                                    <DeleteIcon/>
                                 </IconButton>
                                 <IconButton
                                     className={classnames(classes.expand, {

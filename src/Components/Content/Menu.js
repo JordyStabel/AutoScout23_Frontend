@@ -49,11 +49,11 @@ export default withStyles(styles)(
                 };
         }
 
-        componentWillReceiveProps({dish}) {
-            this.setState({
-                ...dish
-            });
-        }
+        // componentWillReceiveProps({dish}) {
+        //     this.setState({
+        //         ...dish
+        //     });
+        // }
 
         handleChange = name => ({target: {value}}) => {
             this.setState({

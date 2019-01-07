@@ -91,8 +91,8 @@ export default withStyles(styles)(
                             <Paper key={group} className={classes.categoryWrapper}>
                                 <Fragment key={group}>
                                     <Typography variant="headline">{group}</Typography>
-                                    {cars.map(({make, model, mileage, price, created}, index) => (price > 250000 || showAll) ? (
-                                        <Item car={cars[index]}/>
+                                    {cars.map(({make, model, mileage, price, created, carID}, index) => (price > 250000 || showAll) ? (
+                                        <Item key={index} car={cars[index]} onDelete={onDelete}/>
                                     ) : null)}
                                 </Fragment>
                             </Paper>
