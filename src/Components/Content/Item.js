@@ -13,11 +13,12 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 //import red from '@material-ui/core/colors/red';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
+import Payment from '@material-ui/icons/Payment';
 import DeleteIcon from '@material-ui/icons/Delete';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import NumberFormat from 'react-number-format';
+import Button from "@material-ui/core/Button/Button";
 
 const styles = theme => ({
     card: {
@@ -44,6 +45,9 @@ const styles = theme => ({
         [theme.breakpoints.up('sm')]: {
             marginRight: -8,
         },
+    },
+    leftIcon: {
+        marginRight: theme.spacing.unit,
     },
     expandOpen: {
         transform: 'rotate(180deg)',
@@ -104,11 +108,12 @@ class RecipeReviewCard extends React.Component {
                         </div>
                         <div style={{flexGrow: 1}}>
                             <CardActions className={classes.actions} disableActionSpacing>
+                                <Button variant="contained" color="primary" className={classes.button}>
+                                    <Payment className={classes.leftIcon}/>
+                                    Buy this car!
+                                </Button>
                                 <IconButton aria-label="Add to favorites">
                                     <FavoriteIcon/>
-                                </IconButton>
-                                <IconButton aria-label="Share">
-                                    <ShareIcon/>
                                 </IconButton>
                                 <IconButton aria-label="Delete" onClick={() => onDelete(car.id)}>
                                     <DeleteIcon/>
@@ -129,12 +134,9 @@ class RecipeReviewCard extends React.Component {
                 </div>
                 <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <Typography variant={"title"} paragraph>Description will come here</Typography>
+                        <Typography variant={"title"} paragraph>Description</Typography>
                         <Typography paragraph>
-                            Sed vulputate, suspendisse vulputate in pede lacinia, urna sem morbi dapibus consectetuer
-                            dolor, diam dui tristique amet in quis justo. Libero lacinia felis, leo sem in, id pede sit
-                            nascetur, dolor wisi risus in, vel vitae turpis felis. Ut quisque elit egestas mi, ut nibh
-                            aliquet elementum velit, mauris eu nam risus.
+                            {car.description}
                         </Typography>
                         <Typography paragraph>
                             Lorem ipsum dolor sit amet, sed id diam donec suspendisse diam aenean, arcu nulla tortor
@@ -145,13 +147,6 @@ class RecipeReviewCard extends React.Component {
                             nec ullamcorper, tellus aliquam nobis, eget velit luctus libero curabitur tortor vitae.
                             Phasellus urna dui, ultricies dignissim est pretium, pretium adipiscing odio a, vel lorem
                             pellentesque, mauris mauris mauris velit ligula leo.
-                        </Typography>
-                        <Typography paragraph>
-                            Nec libero nisl ante massa, lectus varius amet, nullam per quis, malesuada dui ipsum eget
-                            sagittis, venenatis ut commodo adipiscing neque amet. Felis pellentesque ipsum vestibulum
-                            nunc malesuada commodo, nec consectetuer, dictum natoque vitae amet sit elit habitant,
-                            egestas tellus, aenean lorem dolor cras. Egestas proin elementum aliquet, eu dui cras turpis
-                            ligula, tortor nunc amet quis, ridiculus dui.
                         </Typography>
                     </CardContent>
                 </Collapse>

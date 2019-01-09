@@ -13,8 +13,8 @@ export const add = (x, y) => {
     return x + y;
 };
 
-//const backendURL = "http://localhost:9000";
-const backendURL = "https://autoscout23.herokuapp.com";
+const backendURL = "http://localhost:9000";
+//const backendURL = "https://autoscout23.herokuapp.com";
 
 export default class extends Component {
     state = {
@@ -53,8 +53,10 @@ export default class extends Component {
                     id: car.carID,
                     make: car.make,
                     model: car.model,
+                    carOwner: car.carOwner,
                     mileage: car.mileage,
                     price: car.price,
+                    description: car.description,
                     created: car.date_created,
                     updated: car.date_updated,
                     image: car.image
@@ -74,6 +76,7 @@ export default class extends Component {
                     id: car.carID,
                     make: car.make,
                     model: car.model,
+                    carOwner: car.carOwner,
                     mileage: car.mileage,
                     price: car.price,
                     created: car.date_created,
@@ -170,18 +173,11 @@ export default class extends Component {
             make: car.make,
             model: car.model,
             mileage: car.mileage,
+            carOwner: car.carOwner,
+            description: car.description,
             price: car.price,
             image: car.image
         };
-
-        // let newCar = {
-        //     id: "",
-        //     make: "Porsche",
-        //     model: "911",
-        //     mileage: 13437,
-        //     price: 78500,
-        //     image: "https://s.aolcdn.com/dims-global/dims3/GLOB/legacy_thumbnail/640x400/quality/80/https://s.aolcdn.com/commerce/autodata/images/USC70PRC011A021001.jpg"
-        // };
 
         fetch(backendURL + "/new-car", {
             method: 'POST',
@@ -193,6 +189,8 @@ export default class extends Component {
                 make: car.make,
                 model: car.model,
                 mileage: car.mileage,
+                carOwner: car.carOwner,
+                description: car.description,
                 price: car.price,
                 image: (car.image == null) ? "" : car.image
             })

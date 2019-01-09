@@ -93,7 +93,7 @@ export default withStyles(styles)(
         };
 
         render() {
-            const {model, description, make, price, mileage, image} = this.state,
+            const {model, description, make, price, mileage, image, carOwner} = this.state,
                 {classes, car, makes: allMakes, onSubmit} = this.props;
             return (
                 <form>
@@ -116,6 +116,15 @@ export default withStyles(styles)(
                             ))}
                         </Select>
                     </FormControl>
+                    <br/>
+                    <TextField
+                        label="Car Owner"
+                        value={carOwner}
+                        onChange={this.handleChange("carOwner")}
+                        margin="normal"
+                        className={classes.FormControl}
+                        fullWidth
+                    />
                     <br/>
                     <TextField
                         label="Price $"
@@ -143,7 +152,6 @@ export default withStyles(styles)(
                         label="Description"
                         value={description}
                         onChange={this.handleChange("description")}
-                        //margin="normal"
                         className={classes.FormControl}
                         fullWidth
                     />
@@ -162,7 +170,7 @@ export default withStyles(styles)(
                         variant="raised"
                         onClick={() => onSubmit(this.state)}
                         fullWidth
-                        disabled={!model || !make || !description}>
+                        disabled={!model || !make || !carOwner || !description}>
                         {car ? "EDIT" : "SUBMIT"}
                     </Button>
                 </form>

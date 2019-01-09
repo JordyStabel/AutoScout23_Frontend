@@ -23,10 +23,6 @@ export default withWidth()(({ categories, category, onSelect, onSubmit, getCarBy
       >
         <Tab label="All" />
         {categories.map(group => <Tab key={group} label={group} />)}
-          <Button variant="extendedFab" aria-label="Delete" style={{height: 'auto', margin: 6}} disabled={!isEmpty} onClick={onSubmit}>
-              <NavigationIcon/>
-              SUBMIT ORDER
-          </Button>
           <Button variant="extendedFab" aria-label="Delete" style={{height: 'auto', margin: 6}} disabled={!isEmpty} onClick={() => getCarByMake("Porsche")}>
               <NavigationIcon/>
               PORSCHE
