@@ -66,7 +66,6 @@ export default withStyles(styles)(
          cars,
          dish,
          category,
-         editMode,
          onSelect,
          dish: {
              id,
@@ -75,12 +74,7 @@ export default withStyles(styles)(
              price = 5,
              amount = 0
          },
-         onDelete,
-         onSelectEdit,
-         onEdit,
-         onAddItem,
-         onRemoveItem,
-         showAll
+         onDelete
      }) => (
         <Grid container className={classes.container}>
             {/*Generated items form 'database'*/}
@@ -91,9 +85,9 @@ export default withStyles(styles)(
                             <Paper key={group} className={classes.categoryWrapper}>
                                 <Fragment key={group}>
                                     <Typography variant="headline">{group}</Typography>
-                                    {cars.map(({make, model, mileage, price, created, carID}, index) => (price > 250000 || showAll) ? (
+                                    {cars.map(({make, model, mileage, price, created, carID}, index) =>
                                         <Item key={index} car={cars[index]} onDelete={onDelete}/>
-                                    ) : null)}
+                                    )}
                                 </Fragment>
                             </Paper>
                         ) : null

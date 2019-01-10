@@ -105,7 +105,7 @@ export default withStyles(styles)(
                             onClick={() => onResetFilter()}
                             fullWidth
                             style={{marginTop: 15}}>
-                            REST FILTER
+                            RESET FILTER
                         </Button>
                     </Paper>
                 </div>

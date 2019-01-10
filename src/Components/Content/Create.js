@@ -27,7 +27,7 @@ export default class extends Component {
 
   render() {
     const { open } = this.state,
-      { allergies, categories, makes } = this.props;
+      { categories, makes } = this.props;
 
     return (
       <Fragment>
@@ -40,7 +40,7 @@ export default class extends Component {
             <DialogContentText>
               Please fill out the form below.
             </DialogContentText>
-            <Form allergies={allergies} categories={categories} makes={makes} onSubmit={this.handleFormSubmit} />
+            <Form categories={categories} makes={makes} onSubmit={this.handleFormSubmit} />
           </DialogContent>
         </Dialog>
       </Fragment>
