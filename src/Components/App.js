@@ -15,20 +15,14 @@ const backendURL = "https://autoscout23.herokuapp.com";
 
 export default class extends Component {
     state = {
-        dishes: [],
-        allergyNames: [],
-        allergies: [],
         cars: [],
         car: {},
         makes: [],
         makeNames: [],
-        categoryNames: ['TEST'],
+        categoryNames: ['Sports Cars'],
         categories: [],
-        dish: {},
-        order: [],
         editMode: false,
-        isLoaded: false,
-        showAll: true
+        isLoaded: false
     };
 
     componentWillMount() {
@@ -59,7 +53,7 @@ export default class extends Component {
             .catch(error => console.log("There was an error during: 'fetchCarData'", error))
     };
 
-    fetchCarOfMake = (make) =>  {
+    fetchCarOfMake = (make) => {
         fetch(backendURL + "/car-make/" + make)
             .then(response => response.json())
             .then(parsedJSON => parsedJSON.list.map(car => (
@@ -137,26 +131,6 @@ export default class extends Component {
         }));
     };
 
-    getDishesByCategory() {
-        const initCategories = this.state.categoryNames.reduce(
-            (dishes, category) => ({
-                ...dishes,
-                [category]: []
-            }),
-            {}
-        );
-
-        return Object.entries(
-            this.state.dishes.reduce((dishes, dish) => {
-                const {category} = dish;
-
-                dishes[category] = [...dishes[category], dish];
-
-                return dishes;
-            }, initCategories)
-        );
-    }
-
     handleCategorySelect = category => {
         this.setState({
             category
@@ -164,54 +138,38 @@ export default class extends Component {
     };
 
     handleCarDelete = id => {
-
-        console.log("Delete - Fired --> id: " + id);
-
         fetch(backendURL + "/car-delete/" + id, {
             method: 'DELETE'
         });
 
         this.setState(({cars, car, editMode}) => ({
             cars: cars.filter(_car => _car.id !== id),
-            // Check if editMode previously stored dish (in state) is equal to the selected dish
-            // This is to prevent deleting a different dish, switching the currently selected state.dish editMode
+            // Check if editMode previously stored car (in state) is equal to the selected car
+            // This is to prevent deleting a different car, switching the currently selected state.car editMode
             editMode: car.id === id ? false : editMode,
-            // Check if id previously stored dish (in state) is equal to the selected dish
-            // This is to prevent deleting a different dish, switching the currently selected state.dish
+            // Check if id previously stored car (in state) is equal to the selected car
+            // This is to prevent deleting a different car, switching the currently selected state.car
             car: car.id === id ? {} : car
         }));
     };
 
-    handleSelectEdit = id => {
-        this.setState(({dishes}) => ({
-            dish: dishes.find(_dish => _dish.id === id),
-            editMode: true
-        }));
-    };
-
     render() {
-        const dishes = this.getDishesByCategory();
         const cars = this.state.cars,
-            {category, dish, editMode, showAll} = this.state;
+            {category, editMode} = this.state;
         return (/*theme={darkTheme}*/
             <Fragment>
                 {/*CssBaseline handles the different baseline css browsers have, to make it more consitant across multiple different browsers*/}
                 <CssBaseline/>
 
                 <Header
-                    allergies={this.state.makeNames}
                     makes={this.state.makeNames}
                     categories={this.state.categoryNames}
-                    onDishCreate={this.handleSubmitCar}
+                    onCarCreate={this.handleSubmitCar}
                     toggleShowAll={this.handleToggleShowAll}
-                    showAll={showAll}
-                    order={this.state.order}
                 />
-
                 <div style={{display: 'flex', alignItems: 'stretch', height: 'calc(100% - 64px - 48px)'}}>
                     <div style={{flexGrow: 1, width: '25%'}}>
                         <Menu makes={this.state.makeNames}
-                              allergies={this.categoryNames}
                               categories={this.categoryNames}
                               onSearch={this.fetchCarOfMake}
                               onResetFilter={this.fetchCarData}
@@ -219,18 +177,14 @@ export default class extends Component {
                     </div>
                     <div style={{flexGrow: 2, width: '75%'}}>
                         <Content
-                            dish={dish}
-                            dishes={dishes}
                             cars={cars}
                             category={category}
                             editMode={editMode}
-                            allergies={this.state.allergyNames}
-                            onSelect={this.handleDishSelect}
+                            onSelect={this.handleCarSelect}
                             onDelete={this.handleCarDelete}
                         />
                     </div>
                 </div>
-
                 <Footer
                     categories={this.state.makeNames}
                     category={category}

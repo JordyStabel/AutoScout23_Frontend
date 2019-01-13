@@ -11,9 +11,6 @@ import {withStyles} from "@material-ui/core/styles";
 import NumberFormat from 'react-number-format';
 
 const styles = theme => ({
-    FormControl: {
-        // None for now
-    },
     '@global': {
         'html, body, #root': {
             height: '100%'

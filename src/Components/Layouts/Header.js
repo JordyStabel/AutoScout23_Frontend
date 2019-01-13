@@ -12,7 +12,7 @@ function themeSwitch() {
     isChecked = !isChecked;
 }
 
-export default ({allergies, categories, onDishCreate, makes, toggleShowAll, showAll, onRequestBill, order}) => (
+export default ({allergies, categories, onCarCreate, makes}) => (
     <AppBar position="static">
         <Toolbar>
             <Typography variant="title" color="inherit" style={{flex: 1, marginLeft: 20}}>
@@ -27,16 +27,7 @@ export default ({allergies, categories, onDishCreate, makes, toggleShowAll, show
                 }
                 label={isChecked ? "Light-mode" : "Dark-mode"}
             />
-            {/*<FormControlLabel*/}
-                {/*control={*/}
-                    {/*<Switch*/}
-                        {/*color="secondary"*/}
-                        {/*onChange={toggleShowAll}*/}
-                    {/*/>*/}
-                {/*}*/}
-                {/*label={showAll ? "Show selected dishes" : "Show all dishes"}*/}
-            {/*/>*/}
-            <CreateDialog allergies={allergies} categories={categories} makes={makes} onCreate={onDishCreate}/>
+            <CreateDialog categories={categories} makes={makes} onCreate={onCarCreate}/>
         </Toolbar>
     </AppBar>
 );

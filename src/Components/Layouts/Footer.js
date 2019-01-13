@@ -2,7 +2,7 @@ import React from "react";
 import { AppBar, Tab,Tabs, withWidth, Button } from "@material-ui/core";
 import NavigationIcon from "@material-ui/icons/Navigation";
 
-export default withWidth()(({ categories, category, onSelect, onSubmit, getCarByMake, isEmpty, width }) => {
+export default withWidth()(({ categories, category, onSelect, onSubmit, getCarByMake, isEmpty }) => {
   const index = category
     ? categories.findIndex(group => group === category) + 1
     : 0;

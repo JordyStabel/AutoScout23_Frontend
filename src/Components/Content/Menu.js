@@ -33,27 +33,7 @@ const styles = theme => ({
 
 export default withStyles(styles)(
     class extends Component {
-        state = this.getInitialState();
-
-        getInitialState() {
-            const {dish} = this.props;
-
-            return dish
-                ? dish
-                : {
-                    title: "",
-                    description: "",
-                    allergies: "",
-                    makes: "",
-                    categories: ""
-                };
-        }
-
-        // componentWillReceiveProps({dish}) {
-        //     this.setState({
-        //         ...dish
-        //     });
-        // }
+        state = this.props;
 
         handleChange = name => ({target: {value}}) => {
             this.setState({
@@ -61,17 +41,9 @@ export default withStyles(styles)(
             });
         };
 
-        handleSubmit = () => {
-            this.props.onSubmit({
-                // Create an ID from the title, replacing spaces with '-'
-                id: this.state.title.toLocaleLowerCase().replace(/ /g, "-"),
-                ...this.state
-            });
-        };
-
         render() {
-            const {make} = this.state, //title, description, allergies,
-                {classes, makes, onSearch, onResetFilter} = this.props; //dish,
+            const {make} = this.state,
+                {classes, makes, onSearch, onResetFilter} = this.props;
             return (
                 <div className={classes.container}>
                     <Paper className={classes.paper}>
