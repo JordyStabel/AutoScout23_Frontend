@@ -30,7 +30,7 @@
     "react-test-renderer": "^16.7.0"
   },
   "scripts": {
-    "start": "react-scripts start & wait-on http://localhost:3000",
+    "start": "react-scripts start",
     "cy:run": "cypress run",
     "test": "start http://localhost:3000 cy:run",
     "build": "react-scripts build",
