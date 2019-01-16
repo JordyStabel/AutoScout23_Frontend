@@ -95,6 +95,7 @@ export default withStyles(styles)(
             return (
                 <form>
                     <TextField
+                        id="new-car-model-input"
                         label="Model"
                         value={model}
                         onChange={this.handleChange("model")}
@@ -103,11 +104,16 @@ export default withStyles(styles)(
                         fullWidth
                     />
                     <br/>
-                    <FormControl className={classes.FormControl} fullWidth>
+                    <FormControl
+                        id="new-car-make-select"
+                        className={classes.FormControl}
+                        fullWidth>
                         <InputLabel htmlFor="car-makes">Make</InputLabel>
-                        <Select value={make} onChange={this.handleChange("make")}>
+                        <Select
+                            value={make}
+                            onChange={this.handleChange("make")}>
                             {allMakes.map(make => (
-                                <MenuItem key={make} value={make}>
+                                <MenuItem id="new-car-make-select-options" key={make} value={make}>
                                     {make}
                                 </MenuItem>
                             ))}
@@ -115,6 +121,7 @@ export default withStyles(styles)(
                     </FormControl>
                     <br/>
                     <TextField
+                        id="new-car-owner-input"
                         label="Car Owner"
                         value={carOwner}
                         onChange={this.handleChange("carOwner")}
@@ -124,6 +131,7 @@ export default withStyles(styles)(
                     />
                     <br/>
                     <TextField
+                        id="new-car-price-input"
                         label="Price $"
                         value={price}
                         onChange={this.handleChange("price")}
@@ -134,6 +142,7 @@ export default withStyles(styles)(
                     />
                     <br/>
                     <TextField
+                        id="new-car-milage-input"
                         label="Mileage"
                         value={mileage}
                         onChange={this.handleChange("mileage")}
@@ -144,6 +153,7 @@ export default withStyles(styles)(
                     />
                     <br/>
                     <TextField
+                        id="new-car-desciption-input"
                         multiline={true}
                         rows="4"
                         label="Description"
@@ -153,6 +163,7 @@ export default withStyles(styles)(
                         fullWidth
                     />
                     <TextField
+                        id="new-car-imageURL-input"
                         label="Image URL"
                         value={image}
                         onChange={this.handleChange("image")}
@@ -163,6 +174,7 @@ export default withStyles(styles)(
                     <br/>
                     <br/>
                     <Button
+                        id="new-car-submit-button"
                         color="primary"
                         variant="raised"
                         onClick={() => onSubmit(this.state)}
