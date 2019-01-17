@@ -50,18 +50,22 @@ export default withStyles(styles)(
                         <Typography variant={"headline"} align={"center"}
                                     style={{margin: 25}}>Filter by Make</Typography>
                         <InputLabel htmlFor="makes">Car Make</InputLabel>
-                        <FormControl className={classes.FormControl} fullWidth>
+                        <FormControl
+                            id="filter-car-make-select"
+                            className={classes.FormControl}
+                            fullWidth>
                             <Select
                                 value={this.state.make}
                                 onChange={this.handleChange("make")}>
                                 {makes.map(make => (
-                                    <MenuItem value={make}>
+                                    <MenuItem value={make} id="car-make-select-options" >
                                         {make}
                                     </MenuItem>
                                 ))}
                             </Select>
                         </FormControl>
                         <Button
+                            id="car-make-search-button"
                             color="primary"
                             variant="raised"
                             onClick={() => onSearch(this.state.make)}

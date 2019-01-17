@@ -21,9 +21,11 @@ describe('Create a new car', () => {
 
         cy.get("#new-car-milage-input").click().type("17250");
 
-        cy.get("#new-car-desciption-input").click().type("This car added using Cypress End-2-End testing!");
+        cy.get("#new-car-desciption-input").click()
+            .type("This car added using Cypress End-2-End testing!");
 
-        cy.get("#new-car-imageURL-input").click().type("http://www.complexmania.com/wp-content/uploads/2016w/12/2009-ferrari-f430-spider-004.jpg");
+        cy.get("#new-car-imageURL-input").click()
+            .type("http://www.complexmania.com/wp-content/uploads/2016w/12/2009-ferrari-f430-spider-004.jpg");
 
         cy.get("#new-car-submit-button").click();
     })
