@@ -44,7 +44,7 @@ export default withStyles(styles)(
      }) => (
         <Grid container className={classes.container}>
             <Grid item xs={12}>
-                <Paper className={classes.categoryWrapper}>
+                <Paper className={classes.categoryWrapper} id="car-content-grid">
                     <Fragment>
                         <Typography variant="headline">Second hand cars</Typography>
                         {cars.map(({make, model, mileage, price, created, carID}, index) =>
